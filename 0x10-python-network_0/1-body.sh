@@ -1,3 +1,3 @@
 #!/bin/bash
-# Sends a request to the URL and displays the size of the body of the response in bytes
-curl -s "$1" | wc -c
+# Takes in a URL, sends a GET request to the URL, and displays the body of a 200 status code response
+curl -sL -X GET "$1"
