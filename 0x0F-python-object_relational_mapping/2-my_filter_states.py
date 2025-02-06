@@ -37,8 +37,8 @@ def filter_states(username, password, database, state_name):
     cursor = db.cursor()
 
     # Execute SQL query to select states
-    sql_query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(sql_query, (state_name,))
+    sql_query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(state_name)
+    cursor.execute(sql_query)
 
     # Fetch all the rows
     rows = cursor.fetchall()
@@ -52,7 +52,7 @@ def filter_states(username, password, database, state_name):
 
 if __name__ == "__main__":
     if len(sys.argv) != 5:
-        print("Usage: ./2-my_filter_states.py username password database")
+        print("Usage: ./2-my_filter_states.py username password database state_name")
         sys.exit(1)
 
     username = sys.argv[1]
